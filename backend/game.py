@@ -2,27 +2,15 @@ import random
 
 #random.seed(0)
 
-score = 0
-lives = 3
-
 def assertEqual(result, expected):
-    global score, lives
     if (result == expected):
-        score += 100
-        print("Correct!")
-        print(f"Score: {score}")
         return True
-    score -= 50
-    lives -= 1
-    print("WRONG")
-    print(f"Score: {score}")
-    print(f"Lives: {lives}")
-    if (lives == 0):
-        print("Game Over")
     return False
 
 
-def generate_answer_options(a, b):
+def generate_question_and_options():
+    a, b = random.randrange(1, 11), random.randrange(1, 11)
+    question = f"{a} * {b} = ?"
     correct_answer = a * b
     options = set()
 
@@ -43,12 +31,19 @@ def generate_answer_options(a, b):
     options_dict["C"] = options[2]
     options_dict["D"] = options[3]
 
-    return options_dict
+    return question, options_dict, a, b
 
+def calc_result_and_assert(options, a, b, answer):
+    value = answer.upper()
+    res = options[value]
+    exp = a * b
+    return assertEqual(res, exp)
+
+
+'''
 def multiplication_table_question():
-    a, b = random.randrange(1, 11), random.randrange(1, 11)
-    options = generate_answer_options(a, b)
-    print(f"{a} * {b} = ?")
+    question, options = generate_question_and_options()
+    print(question)
     print(options)
     value = input("Type A, B, C or D (lowercase works)\n")
     value = value.upper()
@@ -60,4 +55,4 @@ def multiplication_table_question():
 
 while lives > 0:
     multiplication_table_question()
-
+'''

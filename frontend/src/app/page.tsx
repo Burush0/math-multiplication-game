@@ -2,7 +2,6 @@
 
 import { auth } from "@/auth";
 import { SignInButton } from "./components/sign-in-button";
-import Image from "next/image";
 import Link from "next/link";
 import { SignOutButton } from "./components/sign-out-button";
 
@@ -12,6 +11,7 @@ export default async function Home() {
   if (session?.user) {
     return (
       <div>
+        <Link href="/game"> Game </Link>
         <Link href="/user-info"> User Info </Link>
         <SignOutButton />
       </div>

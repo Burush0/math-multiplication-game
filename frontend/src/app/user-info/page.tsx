@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import Image from "next/image";
+import { SignOutButton } from "../components/sign-out-button";
 
 export default async function UserInfo() {
     const session = await auth();
@@ -17,6 +18,7 @@ export default async function UserInfo() {
                 style={{borderRadius: "50%"}}
                 />
             )}
+            <SignOutButton />
         </div>
       )
     }
