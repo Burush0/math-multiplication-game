@@ -11,27 +11,27 @@ export default async function Home() {
   if (session?.user) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-            <h1 className="text-3xl font-bold mb-8">Welcome to the Math Game!</h1>
-            <Link href="/game">
-                <button className="bg-blue-500 text-white px-6 py-2 m-4 rounded-lg hover:bg-blue-600 transition duration-300">
-                    Start Game
-                </button>
-            </Link>
-            <Link href="/user-info">
-                <button className="bg-blue-500 text-white px-6 py-2 m-4 rounded-lg hover:bg-blue-600 transition duration-300">
-                    User Info
-                </button> 
-            </Link>
-            <SignOutButton />
+        <Link href="/game">
+          <button className="text-5xl bg-blue-500 text-white px-24 py-8 m-4 rounded-lg hover:bg-blue-600 transition duration-300">
+            Start
+          </button>
+        </Link>
+        <Link href="/profile">
+          <button className="absolute top-16 right-16 bg-blue-500 text-white px-6 py-2 m-4 rounded-lg hover:bg-blue-600 transition duration-300">
+            Profile
+          </button>
+        </Link>
+        <div className="absolute top-32 right-16">
+          <SignOutButton />
+        </div>
       </div>
     )
   }
 
   return (
-  <div>
-    {" "} 
-    <p> You are not signed in </p>{" "}
-    <SignInButton />
-  </div>
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-4">
+      <h2 className="text-3xl text-white">Multiplication Table Quiz</h2>
+      <SignInButton />
+    </div>
   )
 }
